@@ -1,17 +1,38 @@
 <template>
   <div id="app">
-    <tabbar>
-    </tabbar>
+    <tab-bar :items='tabBarItems'></tab-bar>
   </div>
 </template>
 
 <script>
 import TabBar from './components/tabbar/TabBar'
+
 export default {
   name: 'App',
   data () {
     return {
-      items: ['首页', '分类', '购物车', '我的']
+      tabBarItems: [
+        {
+          name: '首页',
+          img: '/assets/img/tabbar/home.svg',
+          activeImg: '../../assets/img/tabbar/home_active.svg'
+        },
+        {
+          name: '分类',
+          img: '../../assets/img/tabbar/category.svg',
+          activeImg: '../../assets/img/tabbar/category_active.svg'
+        },
+        {
+          name: '购物车',
+          img: '../../assets/img/tabbar/cart.svg',
+          activeImg: '../../assets/img/tabbar/cart_active.svg'
+        },
+        {
+          name: '我的',
+          img: '../../assets/img/tabbar/profile.svg',
+          activeImg: '../../assets/img/tabbar/profile_active.svg'
+        }
+      ]
     }
   },
   components: {
@@ -21,5 +42,5 @@ export default {
 </script>
 
 <style>
-@import url("./assets/css/base.css");
+@import "./assets/css/base.css";
 </style>
