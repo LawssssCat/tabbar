@@ -1,6 +1,7 @@
 <template>
   <div id="tab-bar">
-    <tab-bar-item v-for="(item, index) in items" :key='index' :item='item' ></tab-bar-item >
+    <tab-bar-item v-for="(item, index) in items" :key='index' :item='item'>
+    </tab-bar-item >
   </div>
 </template>
 
