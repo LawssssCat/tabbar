@@ -1,7 +1,6 @@
 <template>
   <div id="tab-bar">
-    <tab-bar-item v-for="(item, index) in items" :key='index' :item='item'>
-    </tab-bar-item >
+    <tab-bar-item v-for="(item, index) in items" :key='index' :item='item'></tab-bar-item >
   </div>
 </template>
 
@@ -11,8 +10,15 @@ import TabBarItem from './TabBarItem'
 export default {
   name: 'TabBar',
   props: {
-    items: Array,
-    required: true
+    items: {
+      type: Array,
+      required: true
+    },
+    activeColor: {
+      type: String,
+      default: 'red',
+      required: false
+    }
   },
   components: {
     TabBarItem

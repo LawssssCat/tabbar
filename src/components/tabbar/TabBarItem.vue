@@ -1,5 +1,5 @@
 <template>
-  <div class="tab-bar-item">
+  <div class="tab-bar-item" @click="btnClick">
     <slot>
       <img v-if="!isActive" :src="item.img">
       <img v-if="isActive" :src="item.activeImg">
@@ -12,12 +12,22 @@
 export default {
   name: 'TabBarItem',
   props: {
-    item: Object,
-    required: true
+    item: {
+      type: Object,
+      required: true
+    }
   },
-  data () {
-    return {
-      isActive: false
+  computed: {
+    isActive () {
+      let path = this.item.path
+      // 这里用 indexOf 可以使子组件也高亮
+      return this.$route.path.includes(path)
+    }
+  },
+  methods: {
+    btnClick () {
+      let path = this.item.path
+      this.$router.replace(path)
     }
   }
 }
